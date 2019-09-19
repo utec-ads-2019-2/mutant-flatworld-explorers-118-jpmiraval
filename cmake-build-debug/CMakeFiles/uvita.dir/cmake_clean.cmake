@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/uvita.dir/main.cpp.o"
+  "CMakeFiles/uvita.dir/main.cpp.obj"
   "uvita.pdb"
-  "uvita"
+  "uvita.exe"
+  "uvita.exe.manifest"
+  "uvita.lib"
 )
 
 # Per-language clean rules from dependency scanning.

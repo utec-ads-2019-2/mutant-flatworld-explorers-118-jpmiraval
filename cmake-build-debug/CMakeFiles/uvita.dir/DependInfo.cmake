@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/utec/Documentos/lab604/uvita/main.cpp" "/home/utec/Documentos/lab604/uvita/cmake-build-debug/CMakeFiles/uvita.dir/main.cpp.o"
+  "C:/Users/pc-games/Documents/mutant-flatworld-explorers-118-jpmiraval/main.cpp" "C:/Users/pc-games/Documents/mutant-flatworld-explorers-118-jpmiraval/cmake-build-debug/CMakeFiles/uvita.dir/main.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

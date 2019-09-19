@@ -1,88 +1,71 @@
-#include <iostream>
-#include <string>
-#include "vector"
-
-using namespace std;
+#include <stdio.h>
+#include <stdlib.h>
 
 int main() {
-    char instruction;
-    char Orientation[4] = {'N', 'E', 'S', 'W'};
-    char Ori;
-    int index;
-    bool caida = false;
-    vector<int> fall_x;
-    vector<int> fall_y;
-    int lim_x, lim_y;
-    int pos_x, pos_y;
-
-    cin >> lim_x >> lim_y;
-
-
-    cin >> pos_x >> pos_y;
-
-    cin >> Ori;
-
-    for(int i = 0; i < 4; i++){
-        if( Orientation[i] == Ori ){
-            index = i;
-            break;
-        }
-    }
-
-    while(cin >> instruction){
-        caida = false;
-        if(instruction == 'L'){
-            index--;
-            if(index < 0)
-                index = 3;
-        }else if(instruction == 'R'){
-            index++;
-            if(index > 3)
-                index = 0;
-        }else if(instruction == 'F')
-
-            switch(index){
-            case 0:
-                pos_y++;
-                break;
-            case 1:
-                pos_x++;
-                break;
-            case 2:
-                pos_y--;
-                break;
-            case 3:
-                pos_x--;
-                break;
-        }
-
-        for(auto c : fall_x){
-            if(c == pos_x){
-                caida = true;
+    int n, m, sx, sy;
+    char D[2], cmd[1000], pre[100][100] = {};
+    scanf("%d %d", &n, &m);
+    while(scanf("%d %d %s", &sx, &sy, D) == 3) {
+        scanf("%s", cmd);
+        int d = D[0], flag = 0, i;
+        for(i = 0; cmd[i]; i++) {
+            if(cmd[i] == 'F') {
+                switch(d) {
+                    case 'N':
+                        sy++;break;
+                    case 'E':
+                        sx++;break;
+                    case 'W':
+                        sx--;break;
+                    case 'S':
+                        sy--;break;
+                }
+            } else if(cmd[i] == 'R') {
+                switch(d) {
+                    case 'N':
+                        d = 'E';break;
+                    case 'E':
+                        d = 'S';break;
+                    case 'W':
+                        d = 'N';break;
+                    case 'S':
+                        d = 'W';break;
+                }
+            } else {
+                switch(d) {
+                    case 'N':
+                        d = 'W';break;
+                    case 'E':
+                        d = 'N';break;
+                    case 'W':
+                        d = 'S';break;
+                    case 'S':
+                        d = 'E';break;
+                }
+            }
+            if(sx < 0 || sy < 0 || sx > n || sy > m) {
+                switch(d) {
+                    case 'N':
+                        sy--;break;
+                    case 'E':
+                        sx--;break;
+                    case 'W':
+                        sx++;break;
+                    case 'S':
+                        sy++;break;
+                }
+                if(pre[sx][sy] == 1)
+                    continue;
+                flag = 1;
+                pre[sx][sy] = 1;
                 break;
             }
         }
-
-        for(auto c : fall_y){
-            if(c == pos_y){
-                caida = true;
-                break;
-            }
+        if(!flag)
+            printf("%d %d %c\n", sx, sy, d);
+        else {
+            printf("%d %d %c LOST\n", sx, sy, d);
         }
-
-        if(caida){
-            goto Print;
-            break;
-        }
-
     }
-
-    Print:
-    cout << pos_x << " " << pos_y << " " << Orientation[index];
-    if(caida)
-        cout << " " << "LOST" << endl;
-
-
-
     return 0;
 }

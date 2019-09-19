@@ -6,11 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/utec/Documentos/lab604/uvita/main.cpp
-iostream
+C:/Users/pc-games/Documents/mutant-flatworld-explorers-118-jpmiraval/main.cpp
+stdio.h
 -
-string
+stdlib.h
 -
-vector
-/home/utec/Documentos/lab604/uvita/vector
 
